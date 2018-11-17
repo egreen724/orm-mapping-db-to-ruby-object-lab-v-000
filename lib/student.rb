@@ -56,10 +56,11 @@ class Student
     sql = <<-SQL
       SELECT *
       FROM students
-      WHERE grade < 12 
+      WHERE grade = 10 
+      LIMIT ?
     SQL
     
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql, number)
   end
   
   def save
